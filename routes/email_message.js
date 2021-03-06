@@ -15,14 +15,14 @@ router.get('/list', async function (req, res) {
     return res.send({
       message: "successful",
       status: "200k",
-      data: await mmm.list_email(req.body)
+      data: await mmm.list_email(req.query)
     });
   } catch (error) {
     throw error
   }
 });
 
-router.get('/', async function (req, res) {
+router.get('/all', async (req, res) => {
   try {
     return res.send({
       message: "successful",
@@ -34,20 +34,12 @@ router.get('/', async function (req, res) {
   }
 });
 
-router.get('/list', async (req, res) => {
-  try {
-    return res.send("hih")
-  } catch (error) {
-    throw error
-  }
-})
-
 router.post('/', async (req, res) => {
   try {
     return res.send({
       status: "200k",
       message: "successful",
-      data:  await mmm.insert_data(req.body)
+      data: await mmm.insert_data(req.body)
     })
   } catch (error) {
     throw error
